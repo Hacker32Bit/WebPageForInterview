@@ -5,12 +5,14 @@ const search = document.querySelector('.search-btn');
 const searchCloseIcon = document.querySelector('.search-icon')
 const searchInput = document.querySelector('.header-search-input')
 
+// Listener for menu button
 hamburger.addEventListener('click', () => {
   navMenu.classList.toggle('hide');
   phone.classList.toggle('hide')
 });
 
 
+// Listener for search button click
 search.addEventListener('click', () => {
   console.log("clicked")
   searchInput.classList.toggle('hide')

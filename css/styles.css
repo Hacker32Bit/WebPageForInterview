@@ -194,42 +194,68 @@ input:focus {
 }
 
 .main-category-block {
-    max-width: 1110px;
-    height: 500px;
+    overflow: auto;
     position: relative;
-    overflow: hidden;
-    color: #010114;
-    font-size: 20px;
-    font-weight: 600;
+    z-index: 2;
 }
 
-.main-category-block ul.active {
+.categories {
+    background-color: #0c8fff;
+    min-width: 270px;
+    float: left;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.main-category-block ul {
     list-style-type: none;
+}
+
+.main-category-block ul li {
+    padding: 10px 15px;
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 270px;
+}
+
+.main-category-block ul li:hover {
+    background-color: #007ee9;
+}
+
+.main-category-block ul li>ul {
+    position: absolute;
     margin: 0;
     padding: 0;
-    width: 270px;
-    float: left;
-    display: block;
-    margin-right: 20px;
+    background-color: #333;
+    top: 0;
+    left: 270px;
+    min-width: 270px;
+    max-width: 270px;
+    z-index: -1;
+    height: 100%;
+    -webkit-transition: left 200ms ease-in;
+    -moz-transition: left 200ms ease-in;
+    -ms-transition: left 200ms ease-in;
+    transition: left 200ms ease-in;
 }
 
-.main-category-block li {
-    display: block;
-    color: #000;
-    text-decoration: none;
-    background-color: #F1F1F1;
-    transition: background-color 0.5s;
-    padding: 35px 10px;
+
+.main-category-block ul li>ul li:hover {
+    background-color: #2e2e2e;
 }
 
-.main-category-block li:hover {
-    cursor: pointer;
-    background-color: #fff;
-    transition: background-color 0.5s;
-}
+.categories li.disabled {}
+
+.categories li.active {}
 
 #category-image {
     overflow: hidden;
+    padding-left: 20px;
 }
 
 #category-image img {
@@ -260,7 +286,6 @@ button.btn {
     cursor: pointer;
 }
 
-
 /* Desktops and tablets with screen 1100px and smaller */
 @media screen and (max-width: 1100px) {
     .logo {
@@ -283,6 +308,10 @@ button.btn {
     container {
         padding: 0 20px;
     }
+}
+
+.hide-image {
+    display: none;
 }
 
 /* Tablets and phones with screen 760px and smaller */
@@ -412,33 +441,5 @@ button.btn {
 
     .hide {
         display: none;
-    }
-
-    .main-category-block ul.active {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        float: left;
-        display: block;
-    }
-
-    .main-category-block li {
-        display: block;
-        color: #000;
-        text-decoration: none;
-        background-color: #F1F1F1;
-        background-image: url('/assets/arrow-down-dark.svg');
-        background-position: calc(100% - 20px);
-        background-repeat: no-repeat;
-        transition: background-color 0.5s;
-        padding: 12px 24px;
-        margin-bottom: 20px;
-    }
-
-    .main-category-block li:hover {
-        cursor: pointer;
-        background-color: #fff;
-        transition: background-color 0.5s;
     }
 }
