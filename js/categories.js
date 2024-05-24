@@ -10,6 +10,7 @@ window.addEventListener('click', (e) => {
         categoryImage.classList.add("hide-image")
     } else {
         categoryImage.classList.remove("hide-image")
+        clearAllChildSubmenu(firstCategories)
     }
 });
 
@@ -33,8 +34,7 @@ function createNewSubmenu(element, array) {
     // Create new ul element
     var ul = document.createElement("ul")
     // Add atributtes 2 classes
-    ul.setAttribute("class", "subcategories")
-    ul.setAttribute("class", "sub-menu")
+    ul.setAttribute("class", "subcategories active")
 
     // Add ul element to current li element(element)
     element.appendChild(ul);
@@ -81,9 +81,27 @@ selectedCategories.addEventListener("click", (e) => {
 
     data = JSON.parse(data)
 
+
+    // select parentElement
+    const parentElement = e.target.parentElement
+
+
     // Remove all old submenu
-    clearAllChildSubmenu(e.target.parentElement)
+    clearAllChildSubmenu(parentElement)
+
 
     // Create new submenu
     createNewSubmenu(e.target, data)
+    
+    // Change ul class from active to disabled
+    parentElement.classList.remove("active")
+    parentElement.classList.add("disabled")
+
+    // Clear old active li class and add new active class
+    for (item of parentElement.children) {
+        if (item == e.target)
+            item.classList.add("active")
+        else
+            item.classList.remove("active")
+    }
 })
