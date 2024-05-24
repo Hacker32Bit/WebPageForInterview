@@ -14,17 +14,21 @@ window.addEventListener('click', (e) => {
 });
 
 // Function for remove another submenu
-function removeChildSubmenu(element) {
-    //console.log(element)
+function clearAllChildSubmenu(element) {
+    var listLength = element.children.length;
 
-    for (var item of element.children) {
-        console.log(item.children[0])
+    for (i = 0; i < listLength; i++) {
+        try {
+            element.children[i].removeChild(element.children[i].children[0]);
+        } catch (e) {
+            // console.log("Empty children! Skiping...")
+        }
     }
 }
 
 // Function for create new submenu
 function createNewSubmenu(element, array) {
-    //console.log(element, array)
+    // console.log(element, array)
 
     // Create new ul element
     var ul = document.createElement("ul")
@@ -60,9 +64,12 @@ function createNewSubmenu(element, array) {
 }
 
 selectedCategories.addEventListener("click", (e) => {
-    //console.log(e.target)
+    console.log(e.target)
 
-    
+    // Check if dataset don't have submenu. Generate link by name and redirect
+    if (!e.target.dataset.sub) 
+        window.location.pathname = "categories/" + e.target.dataset.name
+
     // Get data from <li data-sub attribute
     var data = e.target.dataset.sub
 
@@ -73,18 +80,10 @@ selectedCategories.addEventListener("click", (e) => {
     data = data.replaceAll("'", "\"");
 
     data = JSON.parse(data)
-    //console.log(data)
 
+    // Remove all old submenu
+    clearAllChildSubmenu(e.target.parentElement)
 
-
-    // Remove all oppened child submenu
-    removeChildSubmenu(selectedCategories)
-
-
-    // Creating submenu
+    // Create new submenu
     createNewSubmenu(e.target, data)
-
-
-    // Change selectedCategories
-    selectedCategories = e.target.children[0]
 })
