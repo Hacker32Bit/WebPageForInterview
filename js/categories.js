@@ -10,7 +10,13 @@ window.addEventListener('click', (e) => {
         categoryImage.classList.add("hide-image")
     } else {
         categoryImage.classList.remove("hide-image")
+
+        // Remove all submenu
         clearAllChildSubmenu(firstCategories)
+        
+        // Reset class for categories buttons
+        firstCategories.classList.remove("disabled")
+        firstCategories.classList.add("active")
     }
 });
 
