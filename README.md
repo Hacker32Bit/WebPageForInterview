@@ -5,6 +5,10 @@ Follow these steps to set up and run the project:
 1. **Clone the Git Repository:**  
    Clone the project repository to your local machine using the following command:
 
+```
+git clone https://github.com/Hacker32Bit/WebPageForInterview.git
+```
+
 2. **Open in VS Code:**  
 Open the project folder in Visual Studio Code by navigating to the folder location and running:
 
