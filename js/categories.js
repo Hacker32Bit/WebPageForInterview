@@ -73,6 +73,13 @@ function createNewSubmenu(element, array) {
 selectedCategories.addEventListener("click", (e) => {
     console.log(e.target)
 
+    // Check if opened and clicked again.
+    if (e.target.classList.contains("active")) {
+        clearAllChildSubmenu(e.target.parentElement)
+        e.target.classList.remove("active")
+        return
+    }
+
     // Check if dataset don't have submenu. Generate link by name and redirect
     if (!e.target.dataset.sub) 
         window.location.pathname = "categories/" + e.target.dataset.name
