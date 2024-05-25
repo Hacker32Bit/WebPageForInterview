@@ -421,6 +421,14 @@ button.btn {
         line-height: 20px;
     }
 
+    .main-category-block ul li ul li ul.disabled > li {
+        opacity: 1;
+        background-color: #f1f1f1;
+      }
+
+    .main-category-block .link {
+        background-image: none;
+    }
 }
 
 .hide-image {

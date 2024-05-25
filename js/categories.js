@@ -56,6 +56,7 @@ function createNewSubmenu(element, array) {
         if (item.hasOwnProperty("id")) {
             li.innerHTML = li.innerHTML + item.name;
             li.setAttribute("data-name", item.name)
+            li.classList.add("link")
         } // Another way wnen this element have submenu  
         else {
             // Add name
@@ -65,7 +66,7 @@ function createNewSubmenu(element, array) {
             li.setAttribute("data-sub", JSON.stringify(Object.values(item)[0]))
         }
         // For every li element add class
-        li.setAttribute("class", "category-btn")
+        li.classList.add("category-btn")
     }
 }
 
