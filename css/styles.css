@@ -354,6 +354,14 @@ button.btn {
         background-color: #f1f1f1;
     }
 
+    
+    .main-category-block ul>li:hover {  
+        background-image: url("/assets/arrow-down.svg");
+        background-size: 14px;
+        background-color: #010114;
+        color: #fff;
+    }
+
     .main-category-block ul.disabled>li.active {
         background-image: url('/assets/arrow-up.svg');
         background-size: 14px;
@@ -382,6 +390,12 @@ button.btn {
         background-color: #fff;
     }
 
+    .main-category-block ul li>ul li:hover {
+        background-color: #f1f1f1;
+        color: #010114;
+        background-image: url("/assets/arrow-down-dark.svg");
+    }
+
     .main-category-block ul li ul li ul {
         background-color: #f1f1f1;
     }
@@ -395,11 +409,15 @@ button.btn {
     .main-category-block ul li ul.disabled>li.active {
         background-color: #f1f1f1;
         background-image: url('/assets/arrow-up-dark.svg');
-        background-position: calc(100% - 17px) 22px;
+        background-position: calc(100% - 17px) 15px;
         border: 0;
         color: #010114;
         padding: 10px;
         line-height: 20px;
+    }
+
+    .main-category-block ul li ul li ul li:hover {
+        background-color: #fff;
     }
 
     .main-category-block ul li ul li ul li ul {
@@ -414,6 +432,7 @@ button.btn {
         font-size: 14px;
         background-color: #f1f1f1;
         padding: 0 20px;
+        width: calc(100% - 60px);
     }
 
     .main-category-block ul li ul li ul.disabled>li.active {
@@ -427,6 +446,10 @@ button.btn {
       }
 
     .main-category-block .link {
+        background-image: none;
+    }
+
+    .main-category-block .link:hover {
         background-image: none;
     }
 }
