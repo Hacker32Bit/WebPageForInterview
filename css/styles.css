@@ -90,6 +90,16 @@ header {
     transition: color 0.5s;
 }
 
+.menu ul ul {
+    position: fixed;
+    z-index: 9999;
+    background-color: #010114;
+}
+
+.closed {
+    display: none;
+}
+
 .phone {
     display: block;
     height: 92px;
@@ -349,13 +359,13 @@ button.btn {
         font-size: 16px;
     }
 
-    .main-category-block ul.disabled > li {
+    .main-category-block ul.disabled>li {
         opacity: 1;
         background-color: #f1f1f1;
     }
 
-    
-    .main-category-block ul>li:hover {  
+
+    .main-category-block ul>li:hover {
         background-image: url("/assets/arrow-down.svg");
         background-size: 14px;
         background-color: #010114;
@@ -385,7 +395,7 @@ button.btn {
         white-space: collapse;
     }
 
-    .main-category-block ul li ul.disabled > li {
+    .main-category-block ul li ul.disabled>li {
         opacity: 1;
         background-color: #fff;
     }
@@ -440,10 +450,10 @@ button.btn {
         line-height: 20px;
     }
 
-    .main-category-block ul li ul li ul.disabled > li {
+    .main-category-block ul li ul li ul.disabled>li {
         opacity: 1;
         background-color: #f1f1f1;
-      }
+    }
 
     .main-category-block .link {
         background-image: none;
@@ -499,6 +509,14 @@ button.btn {
         text-align: left;
         padding: 10px;
         width: 100%;
+    }
+
+    .menu ul ul {
+        position: relative;
+    }
+
+    .menu ul ul li a{
+        padding: 10px 20px;
     }
 
     .hamburger-menu {
