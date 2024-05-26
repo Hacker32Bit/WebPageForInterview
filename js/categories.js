@@ -1,5 +1,5 @@
 const firstCategories = document.querySelector('.categories');
-var selectedCategories = firstCategories
+const selectedCategories = firstCategories
 const categoryImage = document.querySelector('#category-image')
 
 // Hide image when clicked on categories and reset when clicked outside
@@ -38,7 +38,7 @@ function createNewSubmenu(element, array) {
     // console.log(element, array)
 
     // Create new ul element
-    var ul = document.createElement("ul")
+    const ul = document.createElement("ul")
     // Add atributtes 2 classes
     ul.setAttribute("class", "subcategories active")
 
@@ -48,7 +48,7 @@ function createNewSubmenu(element, array) {
     // Add li elements using array
     for (item of array) {
         // Create new li element
-        var li = document.createElement('li');
+        const li = document.createElement('li');
         // Add li to ul element
         ul.appendChild(li);
 
@@ -71,7 +71,7 @@ function createNewSubmenu(element, array) {
 }
 
 selectedCategories.addEventListener("click", (e) => {
-    console.log(e.target)
+    // console.log(e.target)
 
     // Check if opened and clicked again.
     if (e.target.classList.contains("active")) {
@@ -81,11 +81,13 @@ selectedCategories.addEventListener("click", (e) => {
     }
 
     // Check if dataset don't have submenu. Generate link by name and redirect
-    if (!e.target.dataset.sub) 
+    if (!e.target.dataset.sub) {
         window.location.pathname = "categories/" + e.target.dataset.name
+        return
+    }
 
     // Get data from <li data-sub attribute
-    var data = e.target.dataset.sub
+    let data = e.target.dataset.sub
 
     // Have issue with symbols when copied from task document...
     // Fixed with replace.
