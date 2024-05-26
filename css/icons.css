@@ -1,34 +1,34 @@
 i.arrow-down {
     -webkit-mask-size: cover;
     mask-size: cover;
-    -webkit-mask-image: url(/assets/arrow-down.svg);
-    mask-image: url(/assets/arrow-down.svg);
+    -webkit-mask-image: url("/assets/arrow-down.svg");
+    mask-image: url("/assets/arrow-down.svg");
 }
 
 i.phone-icon {
     -webkit-mask-size: cover;
     mask-size: cover;
-    -webkit-mask-image: url(/assets/phone-icon.svg);
-    mask-image: url(/assets/phone-icon.svg);
+    -webkit-mask-image: url("/assets/phone-icon.svg");
+    mask-image: url("/assets/phone-icon.svg");
 }
 
 i.menu-icon {
     -webkit-mask-size: cover;
     mask-size: cover;
-    -webkit-mask-image: url(/assets/menu.svg);
-    mask-image: url(/assets/menu.svg);
+    -webkit-mask-image: url("/assets/menu.svg");
+    mask-image: url("/assets/menu.svg");
 }
 
 i.search-icon {
     -webkit-mask-size: cover;
     mask-size: cover;
-    -webkit-mask-image: url(/assets/search.svg);
-    mask-image: url(/assets/search.svg);
+    -webkit-mask-image: url("/assets/search.svg");
+    mask-image: url("/assets/search.svg");
 }
 
 i.close-icon {
     -webkit-mask-size: cover;
     mask-size: cover;
-    -webkit-mask-image: url(/assets/close.svg);
-    mask-image: url(/assets/close.svg);
+    -webkit-mask-image: url("/assets/close.svg");
+    mask-image: url("/assets/close.svg");
 }

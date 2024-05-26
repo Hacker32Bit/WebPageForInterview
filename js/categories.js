@@ -1,22 +1,22 @@
 const firstCategories = document.querySelector('.categories');
-const selectedCategories = firstCategories
-const categoryImage = document.querySelector('#category-image')
+const selectedCategories = firstCategories;
+const categoryImage = document.querySelector('#category-image');
 
 // Hide image when clicked on categories and reset when clicked outside
 window.addEventListener('click', (e) => {
-    //console.log(firstCategories, e.target, firstCategories.contains(e.target))
 
     if (firstCategories.contains(e.target)) {
-        categoryImage.classList.add("hide-image")
-    } else {
-        categoryImage.classList.remove("hide-image")
+        categoryImage.classList.add('hide-image');
+    } 
+    else {
+        categoryImage.classList.remove('hide-image');
 
         // Remove all submenu
-        clearAllChildSubmenu(firstCategories)
+        clearAllChildSubmenu(firstCategories);
         
         // Reset class for categories buttons
-        firstCategories.classList.remove("disabled")
-        firstCategories.classList.add("active")
+        firstCategories.classList.remove('disabled');
+        firstCategories.classList.add('active');
     }
 });
 
@@ -28,19 +28,18 @@ function clearAllChildSubmenu(element) {
         try {
             element.children[i].removeChild(element.children[i].children[0]);
         } catch (e) {
-            // console.log("Empty children! Skiping...")
+            // console.log('Empty children! Skiping...')
         }
     }
 }
 
 // Function for create new submenu
 function createNewSubmenu(element, array) {
-    // console.log(element, array)
 
     // Create new ul element
-    const ul = document.createElement("ul")
+    const ul = document.createElement('ul');
     // Add atributtes 2 classes
-    ul.setAttribute("class", "subcategories active")
+    ul.setAttribute('class', 'subcategories active');
 
     // Add ul element to current li element(element)
     element.appendChild(ul);
@@ -53,71 +52,72 @@ function createNewSubmenu(element, array) {
         ul.appendChild(li);
 
         // Check if this item have only one item.
-        if (item.hasOwnProperty("id")) {
+        if (item.hasOwnProperty('id')) {
             li.innerHTML = li.innerHTML + item.name;
-            li.setAttribute("data-name", item.name)
-            li.classList.add("link")
+            li.setAttribute('data-name', item.name);
+            li.classList.add('link');
         } // Another way wnen this element have submenu  
         else {
             // Add name
-            li.innerHTML = li.innerHTML + Object.keys(item)[0]
+            li.innerHTML = li.innerHTML + Object.keys(item)[0];
             // Add data-name and data-sub for next
-            li.setAttribute("data-name", Object.keys(item)[0])
-            li.setAttribute("data-sub", JSON.stringify(Object.values(item)[0]))
+            li.setAttribute('data-name', Object.keys(item)[0]);
+            li.setAttribute('data-sub', JSON.stringify(Object.values(item)[0]));
         }
         // For every li element add class
-        li.classList.add("category-btn")
+        li.classList.add('category-btn');
     }
 }
 
-selectedCategories.addEventListener("click", (e) => {
-    // console.log(e.target)
+selectedCategories.addEventListener('click', (e) => {
 
     // Check if opened and clicked again.
-    if (e.target.classList.contains("active")) {
-        clearAllChildSubmenu(e.target.parentElement)
-        e.target.classList.remove("active")
-        return
+    if (e.target.classList.contains('active')) {
+        clearAllChildSubmenu(e.target.parentElement);
+        e.target.classList.remove('active');
+        return;
     }
 
     // Check if dataset don't have submenu. Generate link by name and redirect
     if (!e.target.dataset.sub) {
-        window.location.pathname = "categories/" + e.target.dataset.name
-        return
+        window.location.pathname = 'categories/' + e.target.dataset.name;
+        return;
     }
 
     // Get data from <li data-sub attribute
-    let data = e.target.dataset.sub
+    let data = e.target.dataset.sub;
 
     // Have issue with symbols when copied from task document...
     // Fixed with replace.
-    data = data.replaceAll("&quot;", "\"")
-    data = data.replaceAll("\"", "\"")
-    data = data.replaceAll("'", "\"");
+    data = data.replaceAll('&quot;', '\"');
+    data = data.replaceAll('\'', '\"');
+    data = data.replaceAll('"', '\"');
 
-    data = JSON.parse(data)
+    data = JSON.parse(data);
 
 
     // select parentElement
-    const parentElement = e.target.parentElement
+    const parentElement = e.target.parentElement;
 
 
     // Remove all old submenu
-    clearAllChildSubmenu(parentElement)
+    clearAllChildSubmenu(parentElement);
 
 
     // Create new submenu
-    createNewSubmenu(e.target, data)
+    createNewSubmenu(e.target, data);
     
     // Change ul class from active to disabled
-    parentElement.classList.remove("active")
-    parentElement.classList.add("disabled")
+    parentElement.classList.remove('active');
+    parentElement.classList.add('disabled');
 
     // Clear old active li class and add new active class
     for (item of parentElement.children) {
-        if (item == e.target)
-            item.classList.add("active")
-        else
-            item.classList.remove("active")
+        if (item == e.target) {
+            item.classList.add('active');
+        }
+        else {
+            item.classList.remove('active');
+        }
     }
-})
+});
